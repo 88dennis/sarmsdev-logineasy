@@ -1,0 +1,71 @@
+DELETE CLIENT GIT
+
+
+    "dev": "concurrently \"npm run client\" \"npm run server\"",
+
+
+code -> preferences -> settings -> type file.exclude -> x GIT
+delete .GIT
+detete .gitignore
+go to heroku
+login -> create new app
+
+go to terminal root
+heroku login
+
+FROM DOCU - >go to site and copy this in deploy tab
+When you create heroku will guide you
+$ cd my-project/
+$ git init
+$ heroku git:remote -a sarmsdev-staff-tracker
+
+git add .
+git commit -m "up"
+
+go to mongoatlas
+
+get your connection string
+mongodb+srv://<username>:<password>@cluster0.m6gfk.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority
+
+go to heroku
+-> settings -> paste the connection string
+
+node --version
+
+"engines": {
+    "node": "12.x"
+  }
+
+git add .
+git commit -m "up"
+git push heroku master
+
+
+{
+  "name": "mern-staff-tracker",
+  "version": "1.0.0",
+  "engines": {
+    "node": "12.0"
+  },
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "client": "cd client && npm run start",
+    "server": "nodemon index.js --ignore client/",
+    "client-install": "cd client && npm install",
+    "server-install": "npm install",
+    "install-all": "concurrently \"npm run client-install\" \"npm run server-install\"",
+    "dev": "concurrently \"npm run client\" \"npm run server\"",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.0"
+  }
+}

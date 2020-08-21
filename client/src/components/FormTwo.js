@@ -7,6 +7,9 @@ function FormTwo(props) {
       <div className="tableCenter">
     <div className="col coWidth">
         <form onSubmit={(e)=>props.submitForm(e, props.id)}>
+        <div className="input-field col s12">
+          <h2>Login Easy</h2>
+          </div>
           <div className="input-field col s12">
             <i className="material-icons prefix">person</i>
             <input

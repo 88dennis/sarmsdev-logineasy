@@ -71,6 +71,12 @@ let userInfo = {
 if(this.state.id === 0) {
     await API.createUser(userInfo).then((response)=> {
         console.log(response)
+        this.setState({
+            id: 0,
+            name: '',
+            email: '',
+            password:""
+        });
    this.getUsers();
 
     }).catch((error)=>{
@@ -117,6 +123,12 @@ if(this.state.id === 0) {
         event.preventDefault();
         API.deleteRecordAPI(id).then((response)=>{
             console.log(response);
+            this.setState({
+                id: 0,
+                name: '',
+                email: '',
+                password:""
+            });
             this.getUsers();
             window.scroll(0,0);
         }).catch((err)=>{

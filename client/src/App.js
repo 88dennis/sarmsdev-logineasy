@@ -5,7 +5,7 @@ import MainPage from './pages/MainPage';
 
 function App() {
   return (
-    <div>
+    <div basename={process.env.PUBLIC_URL}>
       <MainPage />
     </div>
   );  
